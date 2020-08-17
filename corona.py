@@ -20,7 +20,7 @@ def start_message(message):
    bot.send_message(message.chat.id, 'Привет!', reply_markup=keyboard)
 @bot.message_handler(content_types=['text'])
 def echo_msg(message):
-   if message.text.lower() == 'coronavirus':
+   if message.text == 'coronavirus 🇺🇦':
       bot.send_message(message.chat.id, "🇺🇦 Всього захворівших в Україні: " + coronavirus_uk())
 if __name__ == '__main__':
    bot.polling(none_stop=True)

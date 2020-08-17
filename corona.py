@@ -12,16 +12,16 @@ def coronavirus_uk():
    full_page = requests.get(URL, head)
    soup = BeautifulSoup(full_page.content, 'html.parser')
    convert = soup.findAll("strong", {"class": "black"})
-   return convert[0].text
+   return convert[0].text  
 @bot.message_handler(commands=['start'])
 def start_message(message):
    keyboard = telebot.types.ReplyKeyboardMarkup(True)
-   keyboard.row('coronavirus')
+   keyboard.row('coronavirus 🇺🇦')
    bot.send_message(message.chat.id, 'Привет!', reply_markup=keyboard)
 @bot.message_handler(content_types=['text'])
 def echo_msg(message):
    if message.text.lower() == 'coronavirus':
-      bot.send_message(message.chat.id, coronavirus_uk())
+      bot.send_message(message.chat.id, "🇺🇦 Всього захворівших в Україні: " + coronavirus_uk())
 if __name__ == '__main__':
    bot.polling(none_stop=True)
 
